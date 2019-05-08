@@ -3,7 +3,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-#include <math.h>
 using std::cout;
 using std::ifstream;
 using std::istringstream;
@@ -11,7 +10,7 @@ using std::string;
 using std::vector;
 using std::abs;
 
-enum class State {kEmpty, kObstacle};
+enum class State {kEmpty, kObstacle, kClosed};
 
 
 vector<State> ParseLine(string line) {
@@ -43,21 +42,37 @@ vector<vector<State>> ReadBoardFile(string path) {
   return board;
 }
 
-// TODO: Write the Heuristic function here.
-int Heuristic(int x1,int y1,int x2,int y2){
+
+// Calculate the manhattan distance
+int Heuristic(int x1, int y1, int x2, int y2) {
   return abs(x2 - x1) + abs(y2 - y1);
 }
+
+
+/** 
+ * Add a node to the open list and mark it as open. 
+ */
+void AddToOpen(int x, int y, int g, int h, vector<vector<int>> &openlist, vector<vector<State>> &grid) {
+  // Add node to open vector, and mark grid cell as closed.
+  openlist.push_back(vector<int>{x, y, g, h});
+  grid[x][y] = State::kClosed;
+}
+
 
 /** 
  * Implementation of A* search algorithm
  */
 vector<vector<State>> Search(vector<vector<State>> grid, int init[2], int goal[2]) {
-
+  // Create the vector of open nodes.
+  vector<vector<int>> open {};
+  
+  // TODO: Initialize the starting node. 
+  
+  // TODO: Use AddToOpen to add the starting node to the open vector.
 
   cout << "No path found!" << "\n";
-  return std::vector<vector<State>> {};
+  return std::vector<vector<State>>{};
 }
-
 
 string CellString(State cell) {
   switch(cell) {
@@ -76,7 +91,7 @@ void PrintBoard(const vector<vector<State>> board) {
   }
 }
 
-#include "test.cpp" // For testing solution
+#include "test.cpp"
 
 int main() {
   int init[2]{0, 0};
@@ -86,4 +101,5 @@ int main() {
   PrintBoard(solution);
   // Tests
   TestHeuristic();
+  TestAddToOpen();
 }
