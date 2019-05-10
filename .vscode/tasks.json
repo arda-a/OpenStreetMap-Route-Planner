@@ -15,8 +15,10 @@
             "command": "g++",
             "args": [
                 "-g",
+                "-std=c++17",
                 "-o",
-                "/home/arda-a/projects/exercises/a.out",
+                //"/home/arda-a/projects/exercises/a.out",
+                "${command:extension.vscode-wsl-workspaceFolder}/a.out",
                 "main.cpp"
             ],
             "group": {

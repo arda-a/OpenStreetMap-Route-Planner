@@ -5,10 +5,10 @@
                 "name": "(gdb) Launch",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": "/home/arda-a/projects/exercises/a.out",
+                "program": "${command:extension.vscode-wsl-workspaceFolder}/a.out",
                 "args": ["-fThreading"],
                 "stopAtEntry": false,
-                "cwd": "/home/arda-a/projects/exercises/",
+                "cwd": "${command:extension.vscode-wsl-workspaceFolder}",
                 "environment": [],
                 "externalConsole": true,
                 "windows": {
