@@ -119,23 +119,24 @@ void TestCompare() {
 
 void TestSearch() {
   cout << "----------------------------------------------------------" << "\n";
-  cout << "Search Function Test (Partial): ";
+  cout << "Search Function Test: ";
+  int init[2]{0, 0};
   int goal[2]{4, 5};
   auto board = ReadBoardFile("1.board");
   
   std::cout.setstate(std::ios_base::failbit); // Disable cout
-  auto output = Search(board, goal, goal);
+  auto output = Search(board, init, goal);
   std::cout.clear(); // Enable cout
 
-  vector<vector<State>> solution{{State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
-                            {State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty, State::kObstacle, State::kPath}};
+  vector<vector<State>> solution{{State::kStart, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kPath, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kPath, State::kObstacle, State::kEmpty, State::kClosed, State::kClosed, State::kClosed},
+                            {State::kPath, State::kObstacle, State::kClosed, State::kPath, State::kPath, State::kPath},
+                            {State::kPath, State::kPath, State::kPath, State::kPath, State::kObstacle, State::kFinish}};
 
   if (output != solution) {
     cout << "failed" << "\n";
-    cout << "Search(board, {4,5}, {4,5})" << "\n";
+    cout << "Search(board, {0,0}, {4,5})" << "\n";
     cout << "Solution board: " << "\n";
     PrintVectorOfVectors(solution);
     cout << "Your board: " << "\n";
@@ -144,5 +145,75 @@ void TestSearch() {
   } else {
     cout << "passed" << "\n";
   }
+  return;
+}
+
+void TestCheckValidCell() {
   cout << "----------------------------------------------------------" << "\n";
+  cout << "CheckValidCell Function Test: ";
+  vector<vector<State>> grid{{State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kClosed, State::kEmpty, State::kEmpty, State::kObstacle, State::kEmpty}};
+
+  if (CheckValidCell(0, 0, grid)) {
+    cout << "failed" << "\n";
+    cout << "\n" << "Test grid is: " << "\n";
+    PrintVectorOfVectors(grid);
+    cout << "Cell checked: (0, 0)" << "\n";
+    cout << "\n";
+  } else if (!CheckValidCell(4, 2, grid)) {
+    cout << "failed" << "\n";
+    cout << "\n" << "Test grid is: " << "\n";
+    PrintVectorOfVectors(grid);
+    cout << "Cell checked: (4, 2)" << "\n";
+    cout << "\n";
+  } else {
+    cout << "passed" << "\n";
+  }
+}
+
+void TestExpandNeighbors() {
+  cout << "----------------------------------------------------------" << "\n";
+  cout << "ExpandNeighbors Function Test: ";
+  vector<int> current{4, 2, 7, 3};
+  int goal[2] {4, 5};
+  vector<vector<int>> open{{4, 2, 7, 3}};
+  vector<vector<int>> solution_open = open;
+  solution_open.push_back(vector<int>{3, 2, 8, 4});
+  solution_open.push_back(vector<int>{4, 3, 8, 2});
+  vector<vector<State>> grid{{State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kObstacle, State::kEmpty, State::kEmpty, State::kEmpty, State::kEmpty},
+                            {State::kClosed, State::kClosed, State::kEmpty, State::kEmpty, State::kObstacle, State::kEmpty}};
+  vector<vector<State>> solution_grid = grid;
+  solution_grid[3][2] = State::kClosed;
+  solution_grid[4][3] = State::kClosed;
+  ExpandNeighbors(current, goal, open, grid);
+  CellSort(&open);
+  CellSort(&solution_open);
+  if (open != solution_open) {
+    cout << "failed" << "\n";
+    cout << "\n";
+    cout << "Your open list is: " << "\n";
+    PrintVectorOfVectors(open);
+    cout << "Solution open list is: " << "\n";
+    PrintVectorOfVectors(solution_open);
+    cout << "\n";
+  } else if (grid != solution_grid) {
+    cout << "failed" << "\n";
+    cout << "\n";
+    cout << "Your grid is: " << "\n";
+    PrintVectorOfVectors(grid);
+    cout << "\n";
+    cout << "Solution grid is: " << "\n";
+    PrintVectorOfVectors(solution_grid);
+    cout << "\n";
+  } else {
+  	cout << "passed" << "\n";
+  }
+  cout << "----------------------------------------------------------" << "\n";
+  return;
 }
