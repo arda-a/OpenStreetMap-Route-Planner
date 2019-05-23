@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28917.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppND-Route-Planning-Project", "src\CppND-Route-Planning-Project.vcxproj", "{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E} = {5BB19810-152E-3ADB-AD82-93FA66395E7E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pugixml", "thirdparty\pugixml\pugixml.vcxproj", "{5BB19810-152E-3ADB-AD82-93FA66395E7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		MinSizeRel|x64 = MinSizeRel|x64
+		Release|x64 = Release|x64
+		RelWithDebInfo|x64 = RelWithDebInfo|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.Debug|x64.ActiveCfg = Debug|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.Debug|x64.Build.0 = Debug|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.Release|x64.ActiveCfg = Release|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.Release|x64.Build.0 = Release|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{9662FEAB-BE7A-38A3-9EA6-9307306E3AEC}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.Debug|x64.ActiveCfg = Debug|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.Debug|x64.Build.0 = Debug|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.Release|x64.ActiveCfg = Release|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.Release|x64.Build.0 = Release|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{5BB19810-152E-3ADB-AD82-93FA66395E7E}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8173AA6-6E73-3922-8D24-12A907F42FEF}
+	EndGlobalSection
+EndGlobal

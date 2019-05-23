@@ -1,0 +1,15 @@
+.vs/*
+Debug/
+CppND-Route-Planning-Project/build_vs/.vs/CppND-Route-Planning-Project/v16/.suo
+
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\render.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\route_model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\route_planner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\render.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\route_model.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\route_planner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\arda\Documents\GitHub\exercises\CppND-Route-Planning-Project\src\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0381D890-1186-32A4-8126-07F05A2DC9D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{CD769BED-1308-33A5-B06C-667D82AD34AA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
