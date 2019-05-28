@@ -57,8 +57,20 @@ int main(int argc, const char **argv)
     // Build Model.
     RouteModel model{osm_data};
 
+    //User inputs
+    float start_x, start_y, end_x, end_y;
+    std::cout << "Map coordinates are between (0,0) and (100,100). Please enter the coordinates." << std::endl;
+    std::cout << "Start X : ";
+    std::cin >> start_x;
+    std::cout << "Start Y : ";
+    std::cin >> start_y;
+    std::cout << "End X : ";
+    std::cin >> end_x;
+    std::cout << "End Y : ";
+    std::cin >> end_y;
+
     // Perform search and render results.
-    RoutePlanner route_planner{model, 10, 10, 90, 90};
+    RoutePlanner route_planner{model, start_x, start_y, end_x, end_y };
     route_planner.AStarSearch();
     std::cout << "Distance: " << route_planner.GetDistance() << "meters" << std::endl;
     
