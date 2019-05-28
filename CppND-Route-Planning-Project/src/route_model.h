@@ -18,7 +18,7 @@ class RouteModel : public Model {
         bool visited = false;
         std::vector<Node *> neighbors;
 
-        float distance(Node node) const {
+        float distance(RouteModel::Node node) const {
           return sqrt(pow(x - node.x, 2) + pow(y - node.y, 2));
         }        
 
@@ -37,13 +37,13 @@ class RouteModel : public Model {
     // Add public RouteModel variables and methods here.
     RouteModel(const std::vector<std::byte> &xml);  
     std::vector<Node> path; // This variable will eventually store the path that is found by the A* search.
-	std::vector<Node> SNodes() { return m_nodes; }
+	auto& SNodes() { return m_nodes; }
     std::unordered_map<int, std::vector<const Model::Road*>> GetNodeToRoadMap() { return node_to_road; }
-    RouteModel::Node& FindClosestNode(float x, float y);
+    RouteModel::Node &FindClosestNode(float x, float y);
 
   private:
     // Add private RouteModel variables and methods here.
-	std::vector<Node> m_nodes;
+	std::vector<RouteModel::Node> m_nodes;
     std::unordered_map<int, std::vector<const Model::Road*> > node_to_road;
 
     void CreateNodeToRoadHashmap();
